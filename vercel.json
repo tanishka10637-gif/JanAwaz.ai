@@ -1,0 +1,6 @@
+{
+  "framework": "create-react-app",
+  "installCommand": "npm --prefix janawaz install",
+  "buildCommand": "npm --prefix janawaz run build",
+  "outputDirectory": "janawaz/build"
+}

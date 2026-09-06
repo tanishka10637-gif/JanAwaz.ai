@@ -48,6 +48,10 @@ const App = () => {
 
 
   const closeMenu = () => setIsMenuOpen(false)
+  const closeMenuAndPreventDefault = (event) => {
+    event.preventDefault()
+    closeMenu()
+  }
   const showHome = (event) => {
     event.preventDefault()
     closeMenu()
@@ -135,23 +139,23 @@ const App = () => {
     <div>
       <title>JanAwaz.ai</title>
       <div className='navbar'>
-        <a href='#' className='navbar-brand' onClick={showHome} aria-label='JanAwaz.ai home'>
+        <a href='/' className='navbar-brand' onClick={showHome} aria-label='JanAwaz.ai home'>
           <span className='logo-mark' aria-hidden='true'>JA</span>
           <span>JanAwaz<span className='logo-domain'>.ai</span></span>
         </a>
         <div className='nav-contents'>
           {isDashboardArea ? (
             <>
-              <a href='#' onClick={showDashboard}>{t.dashboard}</a>
-              <a href='#' onClick={showComplaintPage}>{t.submitComplaint}</a>
-              <a href='#' onClick={showLogout}>{t.logout}</a>
+              <a href='/' onClick={showDashboard}>{t.dashboard}</a>
+              <a href='/' onClick={showComplaintPage}>{t.submitComplaint}</a>
+              <a href='/' onClick={showLogout}>{t.logout}</a>
             </>
           ) : (
             <>
-              <a href='#' onClick={showHome}>{t.home}</a>
-              <a href='#' onClick={closeMenu}>{t.about}</a>
-              <a href='#' onClick={closeMenu}>{t.contact}</a>
-              <a href='#' onClick={showLoginpage}>{t.login}</a>
+              <a href='/' onClick={showHome}>{t.home}</a>
+              <a href='/' onClick={closeMenuAndPreventDefault}>{t.about}</a>
+              <a href='/' onClick={closeMenuAndPreventDefault}>{t.contact}</a>
+              <a href='/' onClick={showLoginpage}>{t.login}</a>
             </>
           )}
 
@@ -164,16 +168,16 @@ const App = () => {
         <div className={`mobile-menu ${isMenuOpen ? 'is-open' : ''}`} id='mobile-navigation' aria-hidden={!isMenuOpen}>
           {isDashboardArea ? (
             <>
-              <a href='#' onClick={showDashboard}>{t.dashboard}</a>
-              <a href='#' onClick={showComplaintPage}>{t.submitComplaint}</a>
-              <a href='#' onClick={showLogout}>{t.logout}</a>
+              <a href='/' onClick={showDashboard}>{t.dashboard}</a>
+              <a href='/' onClick={showComplaintPage}>{t.submitComplaint}</a>
+              <a href='/' onClick={showLogout}>{t.logout}</a>
             </>
           ) : (
             <>
-              <a href='#' onClick={showHome}>{t.home}</a>
-              <a href='#' onClick={closeMenu}>{t.about}</a>
-              <a href='#' onClick={closeMenu}>{t.contact}</a>
-              <a href='#' onClick={showLoginpage}>{t.login}</a>
+              <a href='/' onClick={showHome}>{t.home}</a>
+              <a href='/' onClick={closeMenuAndPreventDefault}>{t.about}</a>
+              <a href='/' onClick={closeMenuAndPreventDefault}>{t.contact}</a>
+              <a href='/' onClick={showLoginpage}>{t.login}</a>
             </>
           )}
         </div>
@@ -186,8 +190,8 @@ const App = () => {
                 <div className='small'><p>JanAwaz.AI</p></div>
                 <h1>{language === 'English' ? <>Raise Your Voice Against<br /> Injustice.</> : t.landingTitle}</h1>
                 <div className='hero-actions'>
-                  <a href='#' className='button' onClick={showLoginpage}>{t.login}</a>
-                  <a href='#' className='button button-secondary' onClick={showSignuppage}>{t.signup}</a>
+                  <a href='/' className='button' onClick={showLoginpage}>{t.login}</a>
+                  <a href='/' className='button button-secondary' onClick={showSignuppage}>{t.signup}</a>
                 </div>
                 <label className='landing-language'>
                   {t.language}

@@ -12,13 +12,6 @@ const databaseUrl = process.env.DATABASE_URL?.trim()
 const databaseConfig = databaseUrl ? {
   connectionString: databaseUrl,
   ssl: { rejectUnauthorized: false }
-} : process.env.PGUSER && process.env.PGPASSWORD && process.env.PGHOST ? {
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE || 'neondb',
-  port: Number(process.env.PGPORT) || 5432,
-  ssl: { rejectUnauthorized: false }
 } : null
 const pool = databaseConfig ? new Pool(databaseConfig) : null
 const jwtSecret = process.env.JWT_SECRET || 'janawaz-development-secret'

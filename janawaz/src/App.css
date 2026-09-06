@@ -60,11 +60,30 @@ body {
   font-weight: 400;
 }
 .navbar {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) auto minmax(12rem, 1fr);
+  align-items: center;
   position: relative;
   background-image: linear-gradient(110deg, #075ed88b, #092a7886 65%, #061b4b5f);
   padding: 1rem;
   gap: 1rem;
   box-shadow: 0 0.75rem 2rem rgba(1, 8, 26, 0.24);
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.55rem;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.navbar-brand .logo-mark {
+  width: 2.25rem;
+  font-size: 0.9rem;
 }
 
 a {
@@ -108,6 +127,7 @@ a {
   gap: 8rem;
   align-items: center;
   justify-content: center;
+  grid-column: 2;
 }
 
 .hamburger {
@@ -132,6 +152,7 @@ a {
 
 .hamburger:focus-visible,
 .button:focus-visible,
+.hero-actions a:focus-visible,
 .nav-contents a:focus-visible,
 .mobile-menu a:focus-visible {
   outline: 3px solid rgba(99, 215, 255, 0.8);
@@ -156,7 +177,7 @@ a {
   .navbar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .nav-contents {
@@ -167,6 +188,10 @@ a {
     display: block;
     position: relative;
     z-index: 2;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
   }
 
   .hamburger.is-open .bar:nth-child(1) {
@@ -230,6 +255,22 @@ a {
   transition: box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.hero-actions .button {
+  margin-top: 0;
+}
+
+.button-secondary {
+  border-color: rgba(112, 221, 255, 0.55);
+  background: rgba(8, 36, 79, 0.6);
+}
+
 .button::after {
   content: '\2192';
   font-size: 1.15rem;
@@ -244,6 +285,26 @@ a {
 
 .button:hover::after {
   transform: translateX(0.25rem);
+}
+
+.landing-language {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 9rem;
+  margin-top: 1.25rem;
+  color: rgba(235, 248, 255, 0.72);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.landing-language select {
+  padding: 0.65rem 0.7rem;
+  border: 1px solid rgba(142, 218, 255, 0.3);
+  border-radius: 0.4rem;
+  background: rgba(3, 18, 47, 0.72);
+  color: #ffffff;
+  font: inherit;
 }
 
 .complaint-page {
